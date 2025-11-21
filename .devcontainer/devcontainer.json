@@ -1,0 +1,88 @@
+{
+  "name": "gomod",
+  "initializeCommand": "curl https://raw.githubusercontent.com/damianagape/godev/a2d7cdffd23ab77c4cd98911a3e37c497ce3ff55/scripts/init-host.sh | sh",
+  "postAttachCommand": "curl https://raw.githubusercontent.com/damianagape/godev/a2d7cdffd23ab77c4cd98911a3e37c497ce3ff55/scripts/init-container.bash | bash",
+
+  "image": "ghcr.io/damianagape/godev:2022-10-31-12-08-20-a2d7cdf",
+  "runArgs": [
+    "--name=devcontainer-gomod",
+    "--env-file=${localEnv:HOME}${localEnv:USERPROFILE}/workspace/devcontainer.env",
+    "--add-host=kubernetes.docker.internal:host-gateway"
+    //
+  ],
+  "containerEnv": {
+    "EDITOR": "code --wait" // SOPS default editor
+  },
+  "mounts": [
+    "type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock",
+    "type=volume,source=devvolume-aws,target=/root/.aws",
+    "type=volume,source=devvolume-azure,target=/root/.azure",
+    "type=volume,source=devvolume-docker,target=/root/.docker",
+    "type=volume,source=devvolume-gcloud,target=/root/.config/gcloud",
+    "type=volume,source=devvolume-gh,target=/root/.config/gh",
+    "type=volume,source=devvolume-helm,target=/root/.config/helm",
+    "type=volume,source=devvolume-k9s,target=/root/.config/k9s",
+    "type=volume,source=devvolume-kpt,target=/root/.kpt",
+    "type=volume,source=devvolume-kube,target=/root/.kube",
+    "type=volume,source=devvolume-skaffold,target=/root/.skaffold",
+    "type=volume,source=devvolume-terraform,target=/root/.terraform.d"
+    //
+  ],
+
+  "portsAttributes": {
+    "8080": {
+      "label": "goapp",
+      "onAutoForward": "openPreview"
+    },
+    "27017": {
+      "label": "mongodb",
+      "onAutoForward": "notify"
+    },
+    "56268": {
+      "label": "skaffold debug",
+      "onAutoForward": "silent"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "amazonwebservices.aws-toolkit-vscode", // https://aws.amazon.com/visualstudiocode/
+        "eamodio.gitlens", // https://github.com/gitkraken/vscode-gitlens
+        "esbenp.prettier-vscode", // https://prettier.io/docs/en/editors.html#visual-studio-code
+        "foxundermoon.shell-format", // https://github.com/foxundermoon/vs-shell-format
+        "GitHub.vscode-pull-request-github", // https://vscode.github.com/
+        "golang.go", // https://github.com/golang/vscode-go
+        "googlecloudtools.cloudcode", // https://cloud.google.com/code
+        "hashicorp.hcl",
+        "hashicorp.terraform", // https://www.terraform.io/docs/terraform-tools
+        "ms-azuretools.vscode-docker",
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        "ms-vscode.vscode-node-azure-pack", // https://code.visualstudio.com/docs/azure/extensions
+        "redhat.vscode-xml",
+        "streetsidesoftware.code-spell-checker" // https://streetsidesoftware.com/vscode-spell-checker/
+      ],
+      "settings": {
+        "[dockerfile]": { "editor.defaultFormatter": "ms-azuretools.vscode-docker" },
+        "[go]": { "editor.defaultFormatter": "golang.go" },
+        "[hcl]": { "editor.defaultFormatter": "hashicorp.hcl" },
+        "[helm]": { "editor.defaultFormatter": null, "editor.formatOnSave": false },
+        "[json][jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+        "[ignore]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
+        "[shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
+        "[terraform][terraform-vars]": { "editor.defaultFormatter": "hashicorp.terraform" },
+        "[xml]": { "editor.defaultFormatter": "redhat.vscode-xml" },
+        "[yaml]": { "editor.defaultFormatter": "redhat.vscode-yaml" },
+
+        "cloudcode.autoDependencies": "off",
+
+        "go.lintTool": "golangci-lint",
+        "go.toolsManagement.autoUpdate": false,
+
+        "redhat.telemetry.enabled": false,
+
+        "shellformat.path": "/usr/local/bin/shfmt"
+      }
+    }
+  }
+}
