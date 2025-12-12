@@ -4,6 +4,7 @@
 !cmd/
 !internal/
 !pkg/
+!vendor/
 
 # system
 **/.DS_Store
