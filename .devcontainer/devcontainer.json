@@ -13,8 +13,7 @@
     "DOCKER_BUILDKIT": "1",
     "EDITOR": "code --wait",
     "HELM_EXPERIMENTAL_OCI": "1",
-    "KUBECONFIG": "/root/.kube/config:/root/docker-desktop-kubeconfig.yaml",
-    "TZ": "UTC"
+    "KUBECONFIG": "/root/.kube/config:/root/docker-desktop-kubeconfig.yaml"
   },
   "mounts": [
     "type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock",
