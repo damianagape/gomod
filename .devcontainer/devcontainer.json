@@ -1,6 +1,6 @@
 {
   "name": "devcontainer-damianagape-gomod",
-  "initializeCommand": ".devcontainer/kubeconfig",
+  "initializeCommand": ".devcontainer/docker-desktop-kubeconfig",
 
   "image": "europe-central2-docker.pkg.dev/gogcp-main-7/private-docker-images/gorun/core/devcontainer:0.7.103",
   "runArgs": [
