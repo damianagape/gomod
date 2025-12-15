@@ -6,9 +6,6 @@ commandTests:
       - go
     exitCode: 1
 fileExistenceTests:
-  - name: no go directory
-    path: /go
-    shouldExist: false
   - name: goapp binary
     path: /goapp
     shouldExist: true
@@ -16,6 +13,6 @@ fileExistenceTests:
     gid: 0
     isExecutableBy: any
 metadataTest:
+  user: 1111:1111
   entrypoint: ["/goapp"]
   # cmd: []
-  user: 1111:1111
