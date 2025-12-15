@@ -1,17 +1,17 @@
-apiVersion: skaffold/v3alpha1
+apiVersion: skaffold/v4beta13
 kind: Config
 build:
   tagPolicy:
     gitCommit: {}
   artifacts:
-    - image: goapp
+    - image: europe-central2-docker.pkg.dev/gogcp-main-7/private-docker-images/gomod/goapp
       context: .
       docker:
         dockerfile: build/goapp/Dockerfile
 test:
   - image: goapp
     structureTests:
-      - test/goapp/container-structure.yaml
+      - test/goapp/container-structure-test.yaml
 
 profiles:
   - name: dev
@@ -32,10 +32,9 @@ profiles:
       kubectl: {}
 
   - name: prod-eu1
-    #--default-repo=europe-central2-docker.pkg.dev/gomod-0/gomod
     build:
       googleCloudBuild:
-        projectId: gomod-0
+        projectId: gogcp-main-7
     manifests:
       hooks:
         before: [host: { command: ["scripts/sops/decrypt.bash"] }]
@@ -43,5 +42,5 @@ profiles:
         paths:
           - deploy/goapp/overlays/prod
     deploy:
-      kubeContext: gke_gomod-0_europe-central2_autopilot-cluster-1
+      kubeContext: gke_gogcp-test-7_europe-central2-a_gogke-test-7
       kubectl: {}
