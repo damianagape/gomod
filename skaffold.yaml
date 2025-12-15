@@ -9,7 +9,7 @@ build:
       docker:
         dockerfile: build/goapp/Dockerfile
 test:
-  - image: goapp
+  - image: europe-central2-docker.pkg.dev/gogcp-main-7/private-docker-images/gomod/goapp
     structureTests:
       - test/goapp/container-structure-test.yaml
 

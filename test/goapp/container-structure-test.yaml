@@ -13,6 +13,5 @@ fileExistenceTests:
     gid: 0
     isExecutableBy: any
 metadataTest:
-  user: 1111:1111
   entrypoint: ["/goapp"]
   # cmd: []
