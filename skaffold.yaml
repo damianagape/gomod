@@ -22,25 +22,23 @@ profiles:
       local:
         useDockerCLI: true
         push: false
-        tryImportMissing: false
-    manifests:
-      kustomize:
-        paths:
-          - deploy/goapp/overlays/dev
     deploy:
+      helm:
+        releases:
+          - chartPath: deploy/goapp-dev
+            name: goapp
+            namespace: default
       kubeContext: docker-desktop
-      kubectl: {}
 
-  - name: prod-eu1
+  - name: test
     build:
-      googleCloudBuild:
-        projectId: gogcp-main-7
-    manifests:
-      hooks:
-        before: [host: { command: ["scripts/sops/decrypt.bash"] }]
-      kustomize:
-        paths:
-          - deploy/goapp/overlays/prod
+      local:
+        useDockerCLI: true
+        push: true
     deploy:
+      helm:
+        releases:
+          - chartPath: deploy/goapp-test
+            name: goapp
+            namespace: gomod-test-7
       kubeContext: gke_gogcp-test-7_europe-central2-a_gogke-test-7
-      kubectl: {}

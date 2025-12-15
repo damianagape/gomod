@@ -1,10 +1,10 @@
 {
-  "name": "devcontainer-damianagape-gomod",
+  "name": "devcontainer-damianagape-${localWorkspaceFolderBasename}",
   "initializeCommand": ".devcontainer/docker-desktop-kubeconfig",
 
   "image": "europe-central2-docker.pkg.dev/gogcp-main-7/private-docker-images/gorun/core/devcontainer:0.7.103",
   "runArgs": [
-    "--name=devcontainer-damianagape-gomod",
+    "--name=devcontainer-damianagape-${localWorkspaceFolderBasename}",
     "--add-host=kubernetes.docker.internal:host-gateway",
     "--env-file=${localEnv:HOME}/workspace/devcontainer-damianagape.env"
     //

@@ -1,0 +1,6 @@
+dependencies:
+- name: stateless-kuard
+  repository: oci://europe-central2-docker.pkg.dev/gogcp-main-7/private-helm-charts/gorun/demo
+  version: 0.7.101
+digest: sha256:40b308b7395e796e8677687b61078537119f4b92cc9de9975b3642165c87482c
+generated: "2025-12-15T17:15:57.940287002Z"

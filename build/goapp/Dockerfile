@@ -13,3 +13,4 @@ FROM europe-central2-docker.pkg.dev/gogcp-main-7/private-docker-images/gorun/cor
 COPY --from=builder /go/bin/goapp /goapp
 ENTRYPOINT ["/goapp"]
 CMD []
+ENV GODEBUG=""

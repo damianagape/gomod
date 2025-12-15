@@ -17,7 +17,7 @@ Render
 
 ```
 $ skaffold render --profile=dev --output=skaffold-render-manifests.yaml --digest-source=tag
-$ skaffold render --profile=prod-eu1 --output=skaffold-render-manifests.yaml --digest-source=tag
+$ skaffold render --profile=test --output=skaffold-render-manifests.yaml --digest-source=tag
 ```
 
 Continuous Development
@@ -41,12 +41,12 @@ Deploy
 
 ```
 $ skaffold run --profile=dev
-$ skaffold run --profile=prod-eu1
+$ skaffold run --profile=test
 ```
 
 Destroy
 
 ```
 $ skaffold delete --profile=dev
-$ skaffold delete --profile=prod-eu1
+$ skaffold delete --profile=test
 ```
