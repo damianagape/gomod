@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+
+function main {
+  skaffold debug --port-forward \
+    --trigger="manual" --auto-build --auto-deploy --auto-sync
+}
+
+main "$@"

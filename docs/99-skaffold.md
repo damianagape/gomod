@@ -16,8 +16,8 @@ $ skaffold test --profile="dev" --build-artifacts="./skaffold-build-artifacts.js
 Render
 
 ```
-$ skaffold render --profile="dev" --output="./skaffold-render-manifests.yaml" --digest-source="tag"
-$ skaffold render --profile="test" --output="./skaffold-render-manifests.yaml" --digest-source="tag"
+$ skaffold render --profile="dev" --output="./skaffold-manifests-render.yaml" --digest-source="tag"
+$ skaffold render --profile="test" --output="./skaffold-manifests-render.yaml" --digest-source="tag"
 ```
 
 Continuous Development

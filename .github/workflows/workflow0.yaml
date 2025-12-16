@@ -50,24 +50,22 @@ jobs:
         run: gcloud --project="gogcp-test-7" container clusters --region="europe-central2-a" get-credentials "gogke-test-7"
 
       - name: download dependencies
-        run: ./scripts/download-dependencies
+        run: ./scripts/go-download-dependencies
       - name: scan vulnerabilities
-        run: ./scripts/scan-vulnerabilities
+        run: ./scripts/go-scan-vulnerabilities
         continue-on-error: true
       - name: format check
-        run: ./scripts/format-check
+        run: ./scripts/go-format-check
       - name: lint
-        run: ./scripts/lint
+        run: ./scripts/go-lint
       - name: build
-        run: ./scripts/build
+        run: ./scripts/go-build
       - name: test
-        run: ./scripts/test
+        run: ./scripts/go-test
 
-      - name: build images
-        run: skaffold build --profile="dev" --file-output="/tmp/skaffold-build-artifacts.json"
       - name: test images
-        run: skaffold test --profile="dev" --build-artifacts="/tmp/skaffold-build-artifacts.json"
+        run: ./scripts/skaffold-dev-test
 
       - name: deploy to test
         #if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: skaffold run --profile="test"
+        run: ./scripts/skaffold-test-deploy

@@ -1,5 +1,6 @@
 #
 *debug*
+!/scripts/skaffold-dev-debug
 
 # system
 .DS_Store
@@ -30,4 +31,4 @@ __debug_bin
 
 # skaffold output
 /skaffold-build-artifacts.json
-/skaffold-render-manifests.yaml
+/skaffold-manifests-render.yaml

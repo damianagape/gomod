@@ -39,6 +39,6 @@ profiles:
       helm:
         releases:
           - chartPath: deploy/goapp-test
-            name: goapp
+            name: goapp-test-7
             namespace: gomod-test-7
       kubeContext: gke_gogcp-test-7_europe-central2-a_gogke-test-7
