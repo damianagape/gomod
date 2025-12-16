@@ -1,3 +1,6 @@
+#
+*debug*
+
 # system
 .DS_Store
 *.bak
@@ -21,3 +24,10 @@ testdata
 
 # go debug output
 __debug_bin
+
+# helm builds
+/deploy/*/charts/*.tgz
+
+# skaffold output
+/skaffold-build-artifacts.json
+/skaffold-render-manifests.yaml

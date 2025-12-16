@@ -3,21 +3,21 @@
 Build
 
 ```
-$ skaffold build --profile=dev
+$ skaffold build --profile="dev"
 ```
 
 Test
 
 ```
-$ skaffold build --profile=dev --file-output=skaffold-build-artifacts.json
-$ skaffold test --profile=dev --build-artifacts=skaffold-build-artifacts.json
+$ skaffold build --profile="dev" --file-output="./skaffold-build-artifacts.json"
+$ skaffold test --profile="dev" --build-artifacts="./skaffold-build-artifacts.json"
 ```
 
 Render
 
 ```
-$ skaffold render --profile=dev --output=skaffold-render-manifests.yaml --digest-source=tag
-$ skaffold render --profile=test --output=skaffold-render-manifests.yaml --digest-source=tag
+$ skaffold render --profile="dev" --output="./skaffold-render-manifests.yaml" --digest-source="tag"
+$ skaffold render --profile="test" --output="./skaffold-render-manifests.yaml" --digest-source="tag"
 ```
 
 Continuous Development
@@ -34,19 +34,19 @@ Debug
 
 ```
 $ skaffold debug --port-forward \
-    --trigger=manual --auto-build --auto-deploy --auto-sync
+    --trigger="manual" --auto-build --auto-deploy --auto-sync
 ```
 
 Deploy
 
 ```
-$ skaffold run --profile=dev
-$ skaffold run --profile=test
+$ skaffold run --profile="dev"
+$ skaffold run --profile="test"
 ```
 
 Destroy
 
 ```
-$ skaffold delete --profile=dev
-$ skaffold delete --profile=test
+$ skaffold delete --profile="dev"
+$ skaffold delete --profile="test"
 ```

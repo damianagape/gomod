@@ -6,6 +6,9 @@
 !pkg/
 !vendor/
 
+#
+**/*debug*
+
 # system
 **/.DS_Store
 **/*.bak

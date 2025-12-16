@@ -46,6 +46,8 @@ jobs:
         run: gcloud auth configure-docker "europe-central2-docker.pkg.dev"
       - name: helm auth (Google Artifact Registry)
         run: gcloud auth print-access-token | helm registry login --username="oauth2accesstoken" --password-stdin "europe-central2-docker.pkg.dev"
+      - name: kubectl config (Google Kubernetes Engine)
+        run: gcloud --project="gogcp-test-7" container clusters --region="europe-central2-a" get-credentials "gogke-test-7"
 
       - name: download dependencies
         run: ./scripts/download-dependencies
@@ -62,14 +64,10 @@ jobs:
         run: ./scripts/test
 
       - name: build images
-        #if: github.event_name == 'pull_request'
         run: skaffold build --profile="dev" --file-output="/tmp/skaffold-build-artifacts.json"
       - name: test images
-        #if: github.event_name == 'pull_request'
         run: skaffold test --profile="dev" --build-artifacts="/tmp/skaffold-build-artifacts.json"
 
       - name: deploy to test
         #if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: |
-          gcloud --project="gogcp-test-7" container clusters --region="europe-central2-a" get-credentials "gogke-test-7"
-          skaffold run --profile="test"
+        run: skaffold run --profile="test"
