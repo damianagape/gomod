@@ -2,7 +2,7 @@
 set -e
 
 function main {
-  skaffold dev --port-forward
+  skaffold dev --profile="dev" --port-forward
 }
 
 main "$@"
