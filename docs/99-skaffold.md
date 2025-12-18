@@ -23,7 +23,7 @@ $ skaffold render --profile="test" --output="./skaffold-manifests-render.yaml" -
 Continuous Development
 
 ```
-$ skaffold dev --port-forward
+$ skaffold dev --profile="dev" --port-forward
 ```
 
 Debug
@@ -33,8 +33,7 @@ Debug
 - https://github.com/golang/vscode-go/blob/master/docs/debugging.md
 
 ```
-$ skaffold debug --port-forward \
-    --trigger="manual" --auto-build --auto-deploy --auto-sync
+$ skaffold debug --profile="dev" --port-forward --trigger="manual" --auto-build --auto-deploy --auto-sync
 ```
 
 Deploy
