@@ -1,3 +1,4 @@
 # https://docs.github.com/en/repositories/working-with-files/managing-files/customizing-how-changed-files-appear-on-github
 
 **/*.gotmpl.* linguist-generated=true
+**/Chart.lock linguist-generated=true
