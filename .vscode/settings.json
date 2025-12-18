@@ -32,6 +32,7 @@
     "*.yaml.gotmpl": "helm"
   },
   "files.readonlyInclude": {
-    "**/*.gotmpl.*": true // files rendered with Go
+    "**/*.gotmpl.*": true, // files rendered with Go
+    "**/Chart.lock": true
   }
 }

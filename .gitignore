@@ -1,6 +1,5 @@
 #
 *debug*
-!/scripts/skaffold-dev-debug
 
 # system
 .DS_Store
