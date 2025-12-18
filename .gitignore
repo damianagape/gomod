@@ -26,9 +26,6 @@ testdata
 # go debug output
 __debug_bin
 
-# helm builds
-/deploy/*/charts/*.tgz
-
 # skaffold output
 /skaffold-build-artifacts.json
 /skaffold-manifests-render.yaml

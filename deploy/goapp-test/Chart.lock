@@ -1,6 +1,0 @@
-dependencies:
-- name: http-server
-  repository: oci://europe-central2-docker.pkg.dev/gogcp-main-7/private-helm-charts/gorun/apps
-  version: 0.7.100
-digest: sha256:21d24405ec33659a794ae391e141553fa656278a577f49939f03f7597bcc50ca
-generated: "2025-12-17T18:07:52.015249928Z"

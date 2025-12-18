@@ -1,7 +1,0 @@
-apiVersion: v2
-name: goapp-test
-version: 0.0.0
-dependencies:
-  - repository: oci://europe-central2-docker.pkg.dev/gogcp-main-7/private-helm-charts/gorun/apps
-    name: http-server
-    version: 0.7.100

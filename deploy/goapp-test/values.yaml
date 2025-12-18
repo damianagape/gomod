@@ -1,4 +1,0 @@
-http-server:
-  image:
-    repository: europe-central2-docker.pkg.dev/gogcp-main-7/private-docker-images/gomod/goapp
-    tag: 0.0.0

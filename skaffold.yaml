@@ -25,9 +25,12 @@ profiles:
     deploy:
       helm:
         releases:
-          - chartPath: deploy/goapp-dev
-            name: goapp
+          - remoteChart: oci://europe-central2-docker.pkg.dev/gogcp-main-7/private-helm-charts/gorun/apps/http-server
+            version: 0.7.100
+            name: goapp-dev
             namespace: default
+            valuesFiles:
+              - deploy/helm-releases/goapp-dev/values.yaml
       kubeContext: docker-desktop
 
   - name: test
@@ -38,7 +41,10 @@ profiles:
     deploy:
       helm:
         releases:
-          - chartPath: deploy/goapp-test
+          - remoteChart: oci://europe-central2-docker.pkg.dev/gogcp-main-7/private-helm-charts/gorun/apps/http-server
+            version: 0.7.100
             name: goapp-test-7
             namespace: gomod-test-7
+            valuesFiles:
+              - deploy/helm-releases/goapp-test-7/values.yaml
       kubeContext: gke_gogcp-test-7_europe-central2-a_gogke-test-7
