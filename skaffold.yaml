@@ -32,6 +32,12 @@ profiles:
             valuesFiles:
               - deploy/helm-releases/goapp-dev/values.yaml
       kubeContext: docker-desktop
+    portForward:
+      - resourceType: service
+        resourceName: goapp-dev
+        namespace: default
+        port: 8080
+        localPort: 8080
 
   - name: test
     build:
