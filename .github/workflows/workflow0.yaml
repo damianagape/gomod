@@ -41,8 +41,8 @@ jobs:
         run: gcloud auth print-access-token | helm registry login --username="oauth2accesstoken" --password-stdin "europe-central2-docker.pkg.dev"
       - name: kube auth (Google Kubernetes Engine)
         run: gcloud --project="gogcp-test-7" container clusters --region="europe-central2-a" get-credentials "gogke-test-7"
-      # - name: kube namespace
-      #   run: kubectl config set-context --current --namespace="gomod-test-7"
+      - name: kube namespace
+        run: kubectl config set-context --current --namespace="gomod-test-7"
 
       - name: download dependencies
         run: ./scripts/go-download-dependencies
@@ -62,5 +62,5 @@ jobs:
         run: ./scripts/skaffold-test
 
       - name: deploy to test env
-        #if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: skaffold run --profile="test"
